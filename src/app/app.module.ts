@@ -12,13 +12,15 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { StoriesService } from './services/stories.service';
 import { UserService } from './services/user.service';
+import { StatusBarComponent } from './status-bar/status-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlanningRoomComponent,
     HeaderPageComponent,
-    StoryListComponent
+    StoryListComponent,
+    StatusBarComponent
   ],
   imports: [
     BrowserModule,
