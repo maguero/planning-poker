@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { StoriesService } from './services/stories.service';
 import { UserService } from './services/user.service';
 import { StatusBarComponent } from './status-bar/status-bar.component';
+import { MyCardsComponent } from './my-cards/my-cards.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StatusBarComponent } from './status-bar/status-bar.component';
     PlanningRoomComponent,
     HeaderPageComponent,
     StoryListComponent,
-    StatusBarComponent
+    StatusBarComponent,
+    MyCardsComponent
   ],
   imports: [
     BrowserModule,
