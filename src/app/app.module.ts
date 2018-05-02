@@ -23,6 +23,7 @@ import {StoryListComponent} from './story-list/story-list.component';
 import {StatusBarComponent} from './status-bar/status-bar.component';
 import {MyCardsComponent} from './my-cards/my-cards.component';
 import {HomeComponent} from './home/home.component';
+import {VotedCardsComponent} from './voted-cards/voted-cards.component';
 
 /* ====== OTHER IMPORTS ====== */
 import {environment} from '../environments/environment';
@@ -38,7 +39,8 @@ import {environment} from '../environments/environment';
     StoryListComponent,
     StatusBarComponent,
     MyCardsComponent,
-    HomeComponent
+    HomeComponent,
+    VotedCardsComponent
   ],
   imports: [
     BrowserModule,
