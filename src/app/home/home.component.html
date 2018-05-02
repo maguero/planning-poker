@@ -1,0 +1,47 @@
+<!--home component header-->
+<div class="wrapper">
+  <div class="col-sm-12">
+    <h1>{{page_tittle}}</h1>
+  </div>
+</div>
+
+<!--home component container-->
+<div class="row">
+
+  <!--login component container-->
+  <div class="col-sm-6 w">
+    <div class="form-login">
+       <span class="group-btn">
+        <label>Name</label>
+          <input type='text' [(ngModel)]='userName' placeholder="Enter a Name"  autocomplete="off" class="form-control "
+                 required/>
+         <br>
+       </span>
+      <span class="group-btn">
+        <label>email</label>
+           <input type='text' [(ngModel)]='email' placeholder="Enter an Email" class="form-control " required/>
+      </span>
+      <br>
+    </div>
+  </div>
+
+  <!--game actions component container-->
+  <div class="col-sm-6">
+    <div class="form-login">
+      <h4>Select an Option</h4>
+      <br>
+      <div class="wrapper">
+              <span class="group-btn">
+                <button class="btn btn-primary" [routerLink]="['/planning']" (click)="validate_user()"><i
+                  class="fa fa-users"></i> Start New Planning</button>
+              </span>
+        <br>
+        <br>
+        <span class="group-btn">
+             <button class="btn btn-primary" [disabled]="btn_join"><i
+               class="fa fa-comments"></i> Join a Planning</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

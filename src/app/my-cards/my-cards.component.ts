@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'my-cards',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyCardsComponent implements OnInit {
 
-  constructor() { }
+  userName:string;
+  constructor(private _userService: UserService) { }
 
   ngOnInit() {
+    this.userName = this._userService.getUserName()
   }
 
 }
