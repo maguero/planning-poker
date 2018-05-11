@@ -1,0 +1,186 @@
+{
+  "planningSession": [
+    {
+      "backlog": [
+        {
+          "storyId": "0"
+        },
+        {
+          "storyId": "1"
+        }
+      ],
+      "id": "271344be-4c1d-4598-833e-f7538e8ea009",
+      "participants": [
+        {
+          "email": "ernesto.michelli@endava.com",
+          "username": "emichelli"
+        },
+        {
+          "username": "vplechuc",
+          "email": "valentin.plechuc@endava.com"
+        },
+        {
+          "username": "dramirez",
+          "email": "damian.ramirez@endava.com"
+        },
+        {
+          "username": "jhelguero",
+          "email": "juanmanuel.helguero@endava.com"
+        },
+        {
+          "username": "maguero",
+          "email": "matias.aguero@endava.com"
+        },
+        {
+          "username": "mbeade",
+          "email": "matias.beade@endava.com"
+        },
+        {
+          "username": "ehernandez",
+          "email": "emmanuel.hernandez@endava.com"
+        },
+        {
+          "username": "epereyra",
+          "email": "exequiel.pereyra@endava.com"
+        }
+      ],
+      "storiesSession": [
+        {
+          "id": "44b38665-5517-4523-9adf-7e86f22a4d11"
+        },
+        {
+          "id": "ee60b5c6-933b-4962-92da-778dbcc740b2"
+        }
+      ]
+    },
+    {
+      "backlog": [
+        {
+          "storyId": "2"
+        },
+        {
+          "storyId": "2"
+        }
+      ],
+      "id": "5d384fe9-53db-4bba-924f-63377368722c",
+      "participants": [
+        {
+          "email": "ernesto.michelli@endava.com",
+          "username": "emichelli"
+        },
+        {
+          "username": "vplechuc",
+          "email": "valentin.plechuc@endava.com"
+        },
+        {
+          "username": "dramirez",
+          "email": "damian.ramirez@endava.com"
+        },
+        {
+          "username": "jhelguero",
+          "email": "juanmanuel.helguero@endava.com"
+        },
+        {
+          "username": "maguero",
+          "email": "matias.aguero@endava.com"
+        },
+        {
+          "username": "mbeade",
+          "email": "matias.beade@endava.com"
+        },
+        {
+          "username": "ehernandez",
+          "email": "emmanuel.hernandez@endava.com"
+        },
+        {
+          "username": "epereyra",
+          "email": "exequiel.pereyra@endava.com"
+        }
+      ],
+      "storiesSession": [
+        {
+          "id": "44b38665-5517-4523-9adf-7e86f22a4d11"
+        },
+        {
+          "id": "ee60b5c6-933b-4962-92da-778dbcc740b2"
+        }
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "detail": "As a user I want to log in into the app",
+      "id": "1",
+      "points": "1",
+      "title": "Create login page"
+    },
+    {
+      "detail": "As a manager I want to monitor traffic stats",
+      "id": "2",
+      "points": "3",
+      "title": "Add analitycs"
+    },
+    {
+      "detail": "As a dev I want to have a dev cicle under CI",
+      "id": "3",
+      "points": "5",
+      "title": "Implement CI"
+    },
+    {
+      "detail": "As a user I want to have a landing page where see my all my app info",
+      "id": "4",
+      "points": 3,
+      "title": "Implement dashboard page"
+    }
+  ],
+  "storySessions": [
+    {
+      "config": {
+        "time": "60",
+        "voted": "true"
+      },
+      "id": "44b38665-5517-4523-9adf-7e86f22a4d11",
+      "realTime": "60",
+      "status": "open",
+      "storyId": "1",
+      "votes": [
+        {
+          "username": "ehernandez",
+          "votedCard": "1"
+        },
+        {
+          "username": "jhelguero",
+          "votedCard": "8"
+        },
+        {
+          "username": "emendoza",
+          "votedCard": "coffee"
+        }
+      ]
+    },
+    {
+      "config": {
+        "time": "120",
+        "voted": "false"
+      },
+      "id": "ee60b5c6-933b-4962-92da-778dbcc740b2",
+      "realTime": "120",
+      "status": "open",
+      "storyId": "2",
+      "votes": [
+        {
+          "username": "maguero",
+          "votedCard": "3"
+        },
+        {
+          "username": "dramirez",
+          "votedCard": "13"
+        },
+        {
+          "username": "epereyra",
+          "votedCard": "8"
+        }
+      ]
+    }
+  ]
+}
