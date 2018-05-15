@@ -10,6 +10,7 @@
         }
       ],
       "id": "271344be-4c1d-4598-833e-f7538e8ea009",
+      "allVoted ":"true",
       "participants": [
         {
           "email": "ernesto.michelli@endava.com",
@@ -63,6 +64,7 @@
         }
       ],
       "id": "5d384fe9-53db-4bba-924f-63377368722c",
+      "allVoted ":"false",
       "participants": [
         {
           "email": "ernesto.michelli@endava.com",
@@ -143,18 +145,19 @@
       "realTime": "60",
       "status": "open",
       "storyId": "1",
+      "storyPoints": "5",
       "votes": [
         {
           "username": "ehernandez",
-          "votedCard": "1"
+          "votedCard": "3"
         },
         {
           "username": "jhelguero",
-          "votedCard": "8"
+          "votedCard": "5"
         },
         {
           "username": "emendoza",
-          "votedCard": "coffee"
+          "votedCard": "5"
         }
       ]
     },
@@ -167,6 +170,7 @@
       "realTime": "120",
       "status": "open",
       "storyId": "2",
+      "storyPoints": "3",
       "votes": [
         {
           "username": "maguero",
@@ -174,11 +178,11 @@
         },
         {
           "username": "dramirez",
-          "votedCard": "13"
+          "votedCard": "3"
         },
         {
           "username": "epereyra",
-          "votedCard": "8"
+          "votedCard": "5"
         }
       ]
     }
