@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../services/user.service";
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'my-cards',
@@ -8,7 +8,7 @@ import {UserService} from "../services/user.service";
 })
 export class MyCardsComponent implements OnInit {
 
-  userName:string;
+  userName: string;
   constructor(private _userService: UserService) { }
 
   ngOnInit() {

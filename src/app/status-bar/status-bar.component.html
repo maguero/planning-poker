@@ -1,3 +1,4 @@
-<p>
-  status-bar works!
-</p>
+<div>
+    <span class="badge badge-pill badge-success" *ngIf="!finalizado">In Progress</span>
+    <span class="badge badge-pill badge-secondary" *ngIf="finalizado">Completed</span>
+</div>
