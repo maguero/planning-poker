@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <div class="row area">
         <div class="col-xs">
-            <status-bar></status-bar>
+            <!-- All voted{{currentPlanningSession | json}} -->
+            <status-bar [finalizado]="currentPlanningSession.allVoted"></status-bar>
+            <!-- <button (click)="updatePlanning()">Update</button> -->
         </div>
     </div>
     <div class="row">

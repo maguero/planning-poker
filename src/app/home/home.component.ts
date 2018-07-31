@@ -1,21 +1,25 @@
-import {Component, OnInit} from '@angular/core';
-import { UserService} from "../services/user.service";
-
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
+import { PlanningSessionService } from '../services/planning-session.service';
+import PlanningSession from '../models/planning-session';
 
 @Component({
-  // selector: 'home-component', no longer needed if routing is used Use selector for nested components
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  page_tittle: string = 'Welcome to Open Planning Poker';
-  btn_join: boolean = true;
-  btn_start: boolean = true;
-  msg: string = ''; // use for any message
+  page_tittle = 'Welcome to Open Planning Poker';
+  btn_join = true;
+  btn_start = true;
+  msg: string; // use for any message
   userName: string;
   email: string;
+  planningSessionList: PlanningSession[];
 
-  constructor(private _userService: UserService) {
+  constructor(
+    private _userService: UserService,
+    private planningSessionService: PlanningSessionService) {
+    this.planningSessionList = planningSessionService.getAllActiveSesssions();
   }
 
   ngOnInit() {
@@ -23,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   // check user
   validate_user(): void {
-
     this._userService.setUserName(this.userName);
   }
 }
+

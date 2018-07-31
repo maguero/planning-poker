@@ -12,12 +12,12 @@ export class UserService {
     return this.afa.auth.signInAnonymously();
   }
 
-// define getter a setter for userName  to be shared between component throgh userService
-  getUserName(){
+  // define getter a setter for userName  to be shared between component throgh userService
+  getUserName() {
     return this.userName;
   }
 
-  setUserName(_username:string){
+  setUserName(_username: string) {
     this.userName = _username;
   }
 

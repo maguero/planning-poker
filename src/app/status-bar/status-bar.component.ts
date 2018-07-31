@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'status-bar',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./status-bar.component.css']
 })
 export class StatusBarComponent implements OnInit {
+
+  @Input()
+  public finalizado: boolean;
 
   constructor() { }
 
