@@ -1,13 +1,10 @@
- <div class=story-list-container>
- <p style="text-align: center">uid: {{uid}}</p>
- <ul>
-     <li *ngFor="let story of stories | async">
-         <h3>#{{ story.id}} {{ story.title}}</h3>
-         <p>{{ story.detail}}</p>
-         <label>Story points: </label>
-         <input class="story-points" [(ngModel)]="story.points" (change)="updateStory(story)">
-         <div class="pill-label pill-label--grommed" *ngIf="story.points != 0">Grommed</div>
-         <div class="pill-label pill-label--new" *ngIf="story.points == 0">New</div>
-     </li>
- </ul>
+<div class=story-list-container>
+    <ul>
+        <li *ngFor="let storySession of stories">
+            <h4>{{ storySession.story.title}}</h4>
+            <p>{{ storySession.story.detail}}</p>
+            <div class="pill-label pill-label--grommed" *ngIf="storySession.storyPoints != 0">{{storySession.storyPoints}}</div>
+            <div class="pill-label pill-label--new" *ngIf="storySession.storyPoints == 0">New</div>
+        </li>
+    </ul>
 </div>

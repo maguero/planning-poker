@@ -1,68 +1,7 @@
 {
   "planningSession": [
     {
-      "backlog": [
-        {
-          "storyId": "0"
-        },
-        {
-          "storyId": "1"
-        }
-      ],
-      "id": "271344be-4c1d-4598-833e-f7538e8ea009",
-      "allVoted": true,
-      "participants": [
-        {
-          "email": "ernesto.michelli@endava.com",
-          "username": "emichelli"
-        },
-        {
-          "username": "vplechuc",
-          "email": "valentin.plechuc@endava.com"
-        },
-        {
-          "username": "dramirez",
-          "email": "damian.ramirez@endava.com"
-        },
-        {
-          "username": "jhelguero",
-          "email": "juanmanuel.helguero@endava.com"
-        },
-        {
-          "username": "maguero",
-          "email": "matias.aguero@endava.com"
-        },
-        {
-          "username": "mbeade",
-          "email": "matias.beade@endava.com"
-        },
-        {
-          "username": "ehernandez",
-          "email": "emmanuel.hernandez@endava.com"
-        },
-        {
-          "username": "epereyra",
-          "email": "exequiel.pereyra@endava.com"
-        }
-      ],
-      "storiesSession": [
-        {
-          "id": "44b38665-5517-4523-9adf-7e86f22a4d11"
-        },
-        {
-          "id": "ee60b5c6-933b-4962-92da-778dbcc740b2"
-        }
-      ]
-    },
-    {
-      "backlog": [
-        {
-          "storyId": "2"
-        },
-        {
-          "storyId": "2"
-        }
-      ],
+      "name": "Black Album",
       "id": "5d384fe9-53db-4bba-924f-63377368722c",
       "allVoted": false,
       "participants": [
@@ -99,12 +38,56 @@
           "email": "exequiel.pereyra@endava.com"
         }
       ],
-      "storiesSession": [
+      "storySessions": [
         {
-          "id": "44b38665-5517-4523-9adf-7e86f22a4d11"
+          "config": {
+            "time": "60",
+            "voted": false
+          },
+          "id": "44b38665-5517-4523-9adf-7e86f22a4d11",
+          "realTime": "60",
+          "status": "ACTIVE",
+          "storyId": "1",
+          "storyPoints": "5",
+          "votes": [
+            {
+              "email": "juanmanuel.helguero@endava.com",
+              "votedCard": "3"
+            },
+            {
+              "email": "matias.aguero@endava.com",
+              "votedCard": "5"
+            },
+            {
+              "email": "exequiel.pereyra@endava.com",
+              "votedCard": "5"
+            }
+          ]
         },
         {
-          "id": "ee60b5c6-933b-4962-92da-778dbcc740b2"
+          "config": {
+            "time": "120",
+            "voted": false
+          },
+          "id": "ee60b5c6-933b-4962-92da-778dbcc740b2",
+          "realTime": "120",
+          "status": "NEW",
+          "storyId": "2",
+          "storyPoints": "3",
+          "votes": [
+            {
+              "email": "juanmanuel.helguero@endava.com",
+              "votedCard": "3"
+            },
+            {
+              "email": "matias.aguero@endava.com",
+              "votedCard": "5"
+            },
+            {
+              "email": "exequiel.pereyra@endava.com",
+              "votedCard": "5"
+            }
+          ]
         }
       ]
     }
@@ -113,78 +96,26 @@
     {
       "detail": "As a user I want to log in into the app",
       "id": "1",
-      "points": "1",
-      "title": "Create login page"
+      "title": "Create login page",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc volutpat maximus sem id gravida. Praesent sed facilisis urna. Cras eu hendrerit nulla, nec condimentum magna. Pellentesque scelerisque, nunc ac convallis consectetur, massa dolor fermentum ex, sit amet fermentum sapien mauris ornare odio. Aliquam placerat lobortis orci, nec pellentesque magna lobortis quis. Pellentesque porta vestibulum dapibus. Nullam vitae leo lectus. Sed ultrices eget mauris vel lacinia. Vivamus sed placerat ex. Praesent sed imperdiet ipsum, eu congue lectus. Fusce facilisis turpis cursus lacus rutrum, et blandit erat faucibus. Quisque sagittis sed urna eget malesuada. Morbi feugiat quam rhoncus ipsum iaculis, eget cursus sem fermentum. Etiam varius magna neque, nec eleifend lorem tincidunt et."
     },
     {
       "detail": "As a manager I want to monitor traffic stats",
       "id": "2",
-      "points": "3",
-      "title": "Add analitycs"
+      "title": "Add analitycs",
+      "descripcion": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin at quam pulvinar augue aliquet feugiat. Nullam lacus ipsum, feugiat eu orci at, euismod consequat diam. Nullam magna ante, molestie porta augue ac, sodales iaculis ligula. Vestibulum eu turpis ante. Suspendisse lectus nunc, eleifend vel arcu consectetur, tempor placerat mi. In in commodo orci, nec fringilla mauris. Quisque erat lectus, vestibulum sed pharetra nec, commodo id neque. Aenean id quam fermentum, facilisis arcu eget, tincidunt diam. Etiam dui ligula, congue quis est eget, ornare vehicula ligula. Nullam suscipit non mi eu imperdiet."
     },
     {
       "detail": "As a dev I want to have a dev cicle under CI",
       "id": "3",
-      "points": "5",
-      "title": "Implement CI"
+      "title": "Implement CI",
+      "descripcion": "Phasellus sed quam ante. Nam volutpat sodales elit ut sagittis. Phasellus ultricies ligula a neque semper maximus. Vivamus ut quam tortor. Sed nisi arcu, dapibus a ipsum a, pharetra dapibus erat. Cras vel quam nec dolor auctor blandit ac et nunc. Aliquam venenatis sapien ipsum, ut suscipit eros volutpat ac. Cras viverra volutpat nibh. Vivamus volutpat, orci vitae dignissim feugiat, ligula sem maximus diam, sed congue velit orci in lorem. Donec a arcu id orci porta dictum. Donec erat leo, faucibus vitae fringilla vel, tempus id est. Maecenas ut pellentesque purus, vel dictum ante. Aliquam bibendum, ligula in dictum placerat, enim dui venenatis massa, at ultrices velit dui posuere nunc. Aliquam erat volutpat. Donec ut metus tincidunt, efficitur metus sit amet, fermentum tellus. Quisque porta ipsum ipsum, in lobortis massa luctus sed."
     },
     {
       "detail": "As a user I want to have a landing page where see my all my app info",
       "id": "4",
-      "points": 3,
-      "title": "Implement dashboard page"
-    }
-  ],
-  "storySessions": [
-    {
-      "config": {
-        "time": "60",
-        "voted": "true"
-      },
-      "id": "44b38665-5517-4523-9adf-7e86f22a4d11",
-      "realTime": "60",
-      "status": "open",
-      "storyId": "1",
-      "storyPoints": "5",
-      "votes": [
-        {
-          "username": "ehernandez",
-          "votedCard": "3"
-        },
-        {
-          "username": "jhelguero",
-          "votedCard": "5"
-        },
-        {
-          "username": "emendoza",
-          "votedCard": "5"
-        }
-      ]
-    },
-    {
-      "config": {
-        "time": "120",
-        "voted": "false"
-      },
-      "id": "ee60b5c6-933b-4962-92da-778dbcc740b2",
-      "realTime": "120",
-      "status": "open",
-      "storyId": "2",
-      "storyPoints": "3",
-      "votes": [
-        {
-          "username": "maguero",
-          "votedCard": "3"
-        },
-        {
-          "username": "dramirez",
-          "votedCard": "3"
-        },
-        {
-          "username": "epereyra",
-          "votedCard": "5"
-        }
-      ]
+      "title": "Implement dashboard page",
+      "descripcion": "Vestibulum dolor velit, vulputate ac massa sit amet, commodo luctus erat. Praesent porttitor volutpat urna non gravida. Phasellus dictum ultricies justo, nec venenatis felis dignissim ac. Aliquam molestie, dui quis ultrices ultricies, libero tellus interdum lectus, ac maximus sem enim eget turpis. Cras facilisis libero ex, quis ornare nibh luctus ut. Nunc a volutpat lacus. Vivamus pulvinar ultricies sem, quis euismod felis hendrerit ut. Aliquam at lorem quis lectus tempus fringilla. Ut consectetur dui eu lacus vulputate gravida. Duis nec sollicitudin diam. Nullam aliquam libero eu odio viverra venenatis. Vestibulum varius, sapien eget pellentesque faucibus, nisl urna euismod nibh, vitae suscipit est ipsum sit amet nisi. Suspendisse iaculis vestibulum volutpat. Nam sollicitudin, sapien ac malesuada maximus, purus libero ullamcorper neque, ornare laoreet tellus sapien vel nibh. Vestibulum et sem sed elit dignissim porttitor ut id enim. Sed fringilla aliquam felis, vestibulum fringilla erat vehicula in."
     }
   ]
 }

@@ -1,34 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { StoriesService } from '../services/stories.service';
-import { UserService } from '../services/user.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { FirebaseDataAccessService, STORIES_REF } from '../services/firebase-data-access.service';
+import { StoriesSession } from '../models/type-definitions';
 
 @Component({
   selector: 'story-list',
   templateUrl: './story-list.component.html',
   styleUrls: ['./story-list.component.css']
 })
-export class StoryListComponent {
+export class StoryListComponent implements OnInit {
 
-  public stories;
-  uid: string;
+  @Input('stories') stories: StoriesSession[];
 
-  constructor(
-    private storiesService: StoriesService,
-    private userService: UserService) {
-    this.login();
-    this.getStoryList();
+  constructor(private dataAccess: FirebaseDataAccessService) {
   }
 
-  login() {
-    this.userService.anonymousLogin().then((u) => { console.log(JSON.stringify(u)); this.uid = u.uid; });
-  }
-  getStoryList() {
-    this.stories = this.storiesService.getStoryList();
-  }
-  updateStory(story: any) {
-    this.storiesService.updateItem(story.key, story.points);
+  ngOnInit(): void {
   }
 }
 

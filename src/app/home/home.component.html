@@ -1,7 +1,7 @@
 <!--home component header-->
 <div class="wrapper">
   <div class="col-sm-12">
-    <h1>{{page_tittle}}</h1>
+    <h1>{{pageTittle}}</h1>
   </div>
 </div>
 
@@ -13,12 +13,13 @@
     <div class="form-login">
       <span class="group-btn">
         <label>Name</label>
-        <input type='text' [(ngModel)]='userName' placeholder="Enter a Name" autocomplete="off" class="form-control " required/>
+        <input type='text' [(ngModel)]='userName' placeholder="Enter a Name" autocomplete="off" class="form-control "
+          required />
         <br>
       </span>
       <span class="group-btn">
         <label>email</label>
-        <input type='text' [(ngModel)]='email' placeholder="Enter an Email" class="form-control " required/>
+        <input type='text' [(ngModel)]='email' placeholder="Enter an Email" class="form-control " required />
       </span>
       <br>
     </div>
@@ -31,7 +32,7 @@
       <br>
       <div class="wrapper">
         <span class="group-btn">
-          <button class="btn btn-primary" [routerLink]="['/planning']" (click)="validate_user()">
+          <button class="btn btn-primary" [routerLink]="['/planning']" (click)="validateUser()">
             <i class="fa fa-users"></i> Start New Planning</button>
         </span>
         <br>
@@ -41,12 +42,12 @@
           <span class="label label-default">Join a Planning</span>
         </h4>
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Active Sessions
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" [routerLink]="['/planning', ps.key]" *ngFor="let ps of planningSessionList | async">{{ps.id}}</a>
+            <a class="dropdown-item" [routerLink]="['/planning', ps.key]" *ngFor="let ps of planningSessionList | async">{{ps.name}}</a>
           </div>
         </div>
 

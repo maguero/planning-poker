@@ -1,33 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { PlanningSessionService } from '../services/planning-session.service';
-import PlanningSession from '../models/planning-session';
+import { PlanningSessionResponse } from '../models/type-definitions';
+import { FirebaseDataAccessService, PLANNING_SESSIONS_REF } from '../services/firebase-data-access.service';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  page_tittle = 'Welcome to Open Planning Poker';
-  btn_join = true;
-  btn_start = true;
+  pageTittle = 'Welcome to Open Planning Poker';
   msg: string; // use for any message
   userName: string;
   email: string;
-  planningSessionList: PlanningSession[];
+  planningSessionList: Observable<PlanningSessionResponse[]>;
 
   constructor(
-    private _userService: UserService,
-    private planningSessionService: PlanningSessionService) {
-    this.planningSessionList = planningSessionService.getAllActiveSesssions();
+    private userService: UserService,
+    private dataAccess: FirebaseDataAccessService) {
   }
 
   ngOnInit() {
+    this.userService.anonymousLogin().then((u) => {
+      this.planningSessionList = this.dataAccess.getAll<PlanningSessionResponse>(PLANNING_SESSIONS_REF);
+    });
   }
 
-  // check user
-  validate_user(): void {
-    this._userService.setUserName(this.userName);
+  validateUser(): void {
+    this.userService.setUserName(this.userName);
   }
 }
 

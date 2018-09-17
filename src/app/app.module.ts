@@ -29,6 +29,7 @@ import { VotedCardsComponent } from './voted-cards/voted-cards.component';
 import { environment } from '../environments/environment';
 import { StoryDetailComponent } from './story-detail/story-detail.component';
 import { PlanningSessionService } from './services/planning-session.service';
+import { FirebaseDataAccessService } from './services/firebase-data-access.service';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { PlanningSessionService } from './services/planning-session.service';
     StoriesService,
     UserService,
     PlanningGuardService,
-    PlanningSessionService
+    PlanningSessionService,
+    FirebaseDataAccessService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PlanningSessionService } from '../services/planning-session.service';
-import PlanningSession from '../models/planning-session';
-import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { FirebaseDataAccessService, PLANNING_SESSIONS_REF, STORIES_REF } from '../services/firebase-data-access.service';
+import { Story, StoriesSession, PlanningSessionResponse, STORY_SESSION_STATUS } from '../models/type-definitions';
+
 
 @Component({
   // selector: 'planning-room', no longer needed if routing is used. Use selector for nested components
@@ -12,36 +12,44 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class PlanningRoomComponent implements OnInit, OnDestroy {
 
-  private sub: Subscription;
+  private planningSessionSubcription$: Subscription;
+  private storiesSubcription$: Subscription;
   public currentPlanningSession: any;
+  // Contiene la lista de stories que corresponden a la planning session con su información completa
+  public storySessionList: StoriesSession[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private planningSessionService: PlanningSessionService) { }
+    private dataAccessService: FirebaseDataAccessService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      /* Busca la planingSession seleccionada / A traves de currentPlanningSession se puede acceder a toda la información
-        Ej. Los participantes pueden ser provistos como input de Voted-Cards component
-      */
-      this.planningSessionService.getCurrentPlanningSessionByKey(params['key'])
+    this.planningSessionSubcription$ = this.route.params.subscribe(params => {
+
+      this.planningSessionSubcription$ = this.dataAccessService.getByKey<PlanningSessionResponse>(PLANNING_SESSIONS_REF, params['key'])
         .valueChanges()
-        .subscribe((planningSession: PlanningSession) => {
+        .subscribe((planningSession: PlanningSessionResponse) => {
           this.currentPlanningSession = planningSession;
+
+          // Buscar las stories para completar la información
+          planningSession.storySessions.forEach((storySession) => {
+            this.storiesSubcription$ = this.dataAccessService.getByQuery<Story>(STORIES_REF, 'id', storySession.storyId)
+              .valueChanges()
+              .subscribe((stories: Story[]) => {
+                this.storySessionList.push({
+                  id: storySession.id,
+                  status: storySession.status,
+                  storyPoints: storySession.storyPoints,
+                  story: stories[0] // Suponemos que seria siempre solo un elemento
+                });
+              });
+          });
         });
     });
   }
 
-  updatePlanning() {
-    /* Ejemplo de como actualizar una planning session, se manda solo lo que se va a actualizar */
-    this.planningSessionService.updatePlanningSession('0', {
-      allVoted: true
-    });
-  }
-
-
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.planningSessionSubcription$.unsubscribe();
+    this.storiesSubcription$.unsubscribe();
   }
 
 }
