@@ -1,9 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="currentPlanningSession">
     <div class="row area">
         <div class="col-xs">
-            <!-- All voted{{currentPlanningSession | json}} -->
+            <!-- {{currentPlanningSession | json}} -->
             <status-bar [finalizado]="currentPlanningSession.allVoted"></status-bar>
-            <!-- <button (click)="updatePlanning()">Update</button> -->
         </div>
     </div>
     <div class="row">
@@ -19,7 +18,7 @@
             <my-cards></my-cards>
         </div>
         <div class="col area">
-            <story-list></story-list>
+            <story-list [stories]='storySessionList'></story-list>
         </div>
     </div>
 </div>
