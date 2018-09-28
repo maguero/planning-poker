@@ -5,7 +5,6 @@ node_js:
 
 before_script: # commands to run before the build step
    - npm install -g --silent @angular/cli
-   - npm install bootstrap@4.0.0-beta.2 --save
    - npm install -g node-gyp node-pre-gyp
 script: # the build step
    - ng build --env=prod
