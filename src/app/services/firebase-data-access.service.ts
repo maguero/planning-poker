@@ -1,4 +1,4 @@
-import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 
