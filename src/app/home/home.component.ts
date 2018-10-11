@@ -24,7 +24,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.userService.anonymousLogin().then((u) => {
-      this.planningSessionList = this.dataAccess.getAll<PlanningSessionResponse>(PLANNING_SESSIONS_REF);
+      this.dataAccess.getAll<PlanningSessionResponse>(PLANNING_SESSIONS_REF).subscribe((r) => {
+        this.planningSessionList = r;
+      });
     });
   }
 

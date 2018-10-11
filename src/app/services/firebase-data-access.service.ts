@@ -1,6 +1,8 @@
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+
 
 export const STORIES_REF = 'stories';
 export const PLANNING_SESSIONS_REF = 'planningSession';
@@ -10,10 +12,11 @@ export class FirebaseDataAccessService {
     constructor(private db: AngularFireDatabase) {
     }
 
-    getAll<T>(dbRef: string): Observable<T[]> {
-        return this.db.list(dbRef).snapshotChanges().map(changes => {
-            return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-        });
+    getAll<T>(dbRef: string): Observable<any> {
+        return this.db.list(dbRef).snapshotChanges()
+            .pipe(
+                map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
+            )
     }
 
     getByKey<T>(dbRef: string, key: string): AngularFireObject<T> {
