@@ -3,7 +3,7 @@ import { UserService } from '../services/user.service';
 import { PlanningSessionService } from '../services/planning-session.service';
 import { PlanningSessionResponse } from '../models/type-definitions';
 import { FirebaseDataAccessService, PLANNING_SESSIONS_REF } from '../services/firebase-data-access.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 
 @Component({

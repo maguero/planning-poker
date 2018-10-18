@@ -26,8 +26,7 @@
     "firebase": "^5.0.3",
     "jquery": "^3.3.1",
     "rxjs": "^6.3.3",
-    "zone.js": "^0.8.4",
-    "rxjs-compat": "^6.0.0-rc.0"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",

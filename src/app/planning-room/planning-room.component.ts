@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { FirebaseDataAccessService, PLANNING_SESSIONS_REF, STORIES_REF } from '../services/firebase-data-access.service';
 import { Story, StoriesSession, PlanningSessionResponse, STORY_SESSION_STATUS } from '../models/type-definitions';
 
