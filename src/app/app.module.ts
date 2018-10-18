@@ -1,14 +1,13 @@
 /* ====== ANGULAR MODULES ====== */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule } from '@angular/fire';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 /* ====== THIRD PARTY MODULES ====== */
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 /* ====== CUSTOM MODULES ====== */
 import { StoriesService } from './services/stories.service';

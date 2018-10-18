@@ -27,3 +27,48 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
+
+## Step list to upgrade to Angular v6.1.9
+Uninstall current angular/cli version (Globablly)
+```
+cd <folder outside project>
+npm uninstall -g @angular/cli
+npm cache verify
+```
+
+Install angular/cli version 6.2.4 (Globablly)
+```
+npm install -g @angular/cli@latest
+```
+Veryfe version has been installed
+```
+ng -v
+```
+
+Uninstall current angular/cli version (Locally)
+```
+cd <project version>
+npm uninstall @angular/cli
+npm cache verify
+```
+
+Install angular/cli version 6.2.4 (Locally)
+```
+npm install @angular/cli@latest
+```
+
+Clean previous dependencies and generated files
+```
+rm -rf node_modules dist
+```
+
+Run install again to refresh all dependencies
+```
+npm install
+```
+
+For further details on upgrade step by steps <br>
+[YouTube example](https://www.youtube.com/watch?v=ScaKGrW5s0I) <br>
+[Angular Official Upgrade Site](https://update.angular.io/) <br>
+[Angular/cli](https://github.com/angular/angular-cli/blob/master/packages/angular/cli/README.md#updating-angular-cli)
+

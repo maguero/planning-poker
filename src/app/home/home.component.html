@@ -41,15 +41,8 @@
         <h4>
           <span class="label label-default">Join a Planning</span>
         </h4>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Active Sessions
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" [routerLink]="['/planning', ps.key]" *ngFor="let ps of planningSessionList | async">{{ps.name}}</a>
-          </div>
-        </div>
+
+        <a [routerLink]="['/planning', ps.key]" *ngFor="let ps of planningSessionList">{{ps.name}}</a>
 
       </div>
     </div>
