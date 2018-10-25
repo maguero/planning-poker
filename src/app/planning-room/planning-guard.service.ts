@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import { CanActivate, Router} from "@angular/router";
-import {UserService} from "../services/user.service";
-import {isNullOrUndefined} from "util";
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from "@angular/router";
+import { isNullOrUndefined } from "util";
+import { UserService } from '../services/user.service';
 
 @Injectable()
-export class PlanningGuardService implements CanActivate{
+export class PlanningGuardService implements CanActivate {
 
   constructor(private _router: Router, private _userService: UserService) {
   }

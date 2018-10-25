@@ -22,3 +22,12 @@
         </div>
     </div>
 </div>
+
+<mat-card>
+    <mat-card-title>Debug Info</mat-card-title>
+    <mat-card-content>
+        <debug [participants]="currentPlanningSession.participants" [votes]="votes" [activeSession]="activeSession"
+            [storySessionList]="storySessionList">
+        </debug>
+    </mat-card-content>
+</mat-card>

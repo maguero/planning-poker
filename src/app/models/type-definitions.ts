@@ -1,17 +1,18 @@
 
-export class Paticipants {
+export class Participants {
     email: string;
     username: string;
 }
 
-export class StoriesSessionResponse {
+export class StorySessionResponse {
     id: string;
     storyId: string;
     status: string;
     storyPoints: number;
+    votes: Vote[];
 }
 
-export class StoriesSession {
+export class StorySession {
     id: string;
     storyPoints: number;
     story?: Story;
@@ -37,13 +38,19 @@ export class PlanningSessionResponse {
     name: string;
     allVoted?: boolean;
     backlog?: Story[];
-    participants?: Paticipants[];
-    storySessions?: StoriesSessionResponse[];
+    participants?: Participants[];
+    storySessions?: StorySessionResponse[];
 }
 
-export const STORY_SESSION_STATUS = {
-    'NEW': 'new',
-    'ACTIVE': 'active',
-    'COMPLETE': 'complete'
+export enum StorySessionStatus {
+    'NEW' = 'NEW',
+    'ACTIVE' = 'ACTIVE',
+    'ACTIVE_GROMMED' = 'ACTIVE_GROMMED',
+    'COMPLETE' = 'COMPLETE'
 }
 
+
+export class Vote {
+    email: string;
+    votedCard: number
+}
