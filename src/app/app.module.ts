@@ -29,7 +29,10 @@ import { environment } from '../environments/environment';
 import { StoryDetailComponent } from './story-detail/story-detail.component';
 import { PlanningSessionService } from './services/planning-session.service';
 import { FirebaseDataAccessService } from './services/firebase-data-access.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+/* ====== ANGULAR MATERIAL ====== */
+import { MatButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -56,12 +59,14 @@ import { FirebaseDataAccessService } from './services/firebase-data-access.servi
       },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' },
-    ])
+    ]),
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [
     AngularFireDatabase,
-    AngularFireAuth,
     StoriesService,
+    AngularFireAuth,
     UserService,
     PlanningGuardService,
     PlanningSessionService,
