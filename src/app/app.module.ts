@@ -32,7 +32,7 @@ import { FirebaseDataAccessService } from './services/firebase-data-access.servi
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* ====== ANGULAR MATERIAL ====== */
-import { MatButtonModule } from '@angular/material';
+import { MaterialCommonModule } from './commons/material.common.module';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,7 @@ import { MatButtonModule } from '@angular/material';
       { path: '**', redirectTo: 'home', pathMatch: 'full' },
     ]),
     BrowserAnimationsModule,
-    MatButtonModule
+    MaterialCommonModule
   ],
   providers: [
     AngularFireDatabase,
