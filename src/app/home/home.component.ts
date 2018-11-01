@@ -4,7 +4,7 @@ import { PlanningSessionService } from '../services/planning-session.service';
 import { PlanningSessionResponse } from '../models/type-definitions';
 import { FirebaseDataAccessService, PLANNING_SESSIONS_REF } from '../services/firebase-data-access.service';
 import { Observable } from 'rxjs';
-import { MatButtonModule } from '@angular/material/button';
+import { MaterialCommonModule } from '../commons/material.common.module';
 
 @Component({
   templateUrl: './home.component.html',
