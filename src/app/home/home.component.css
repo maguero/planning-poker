@@ -36,3 +36,11 @@ h4 {
 .wrapper {
   text-align: center;
 }
+
+.gride-container > * {
+  width: 100%;
+}
+
+.gride-container h2 {
+  text-align: center;
+}
