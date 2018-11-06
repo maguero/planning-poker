@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { PlanningSessionService } from '../services/planning-session.service';
 import { PlanningSessionResponse } from '../models/type-definitions';
 import { FirebaseDataAccessService, PLANNING_SESSIONS_REF } from '../services/firebase-data-access.service';
-import { Observable } from 'rxjs';
-import { MaterialCommonModule } from '../commons/material.common.module';
+import { throwError } from 'rxjs';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { map, catchError } from 'rxjs/operators';
+import { MyErrorStateMatcher } from 'app/commons/forms.utils.common';
 
 @Component({
   templateUrl: './home.component.html',
@@ -12,26 +14,46 @@ import { MaterialCommonModule } from '../commons/material.common.module';
 })
 export class HomeComponent implements OnInit {
   pageTittle = 'Welcome to Open Planning Poker';
-  msg: string; // use for any message
-  userName: string;
-  email: string;
-  planningSessionList: Observable<PlanningSessionResponse[]>;
+
+  joinForm: FormGroup;
+  matcher: MyErrorStateMatcher;
 
   constructor(
     private userService: UserService,
-    private dataAccess: FirebaseDataAccessService) {
-  }
+    private dataAccess: FirebaseDataAccessService,
+    private router: Router
+    ) {
+      this.joinForm = new FormGroup({
+        'planningId': new FormControl('', [
+          Validators.required
+        ]),
+        'guestEmail': new FormControl('', [
+          Validators.required,
+          Validators.email,
+        ])
+      });
+      this.matcher = new MyErrorStateMatcher();
+    }
 
   ngOnInit() {
     this.userService.anonymousLogin().then((u) => {
-      this.dataAccess.getAll<PlanningSessionResponse>(PLANNING_SESSIONS_REF).subscribe((r) => {
-        this.planningSessionList = r;
-      });
     });
   }
 
-  validateUser(): void {
-    this.userService.setUserName(this.userName);
+  validatePlanning(): void {
+    this.dataAccess.getByKey<PlanningSessionResponse>(PLANNING_SESSIONS_REF, this.joinForm.get("planningId").value)
+      .valueChanges()
+        .pipe(
+          map((planningSession: PlanningSessionResponse) => {
+            if (!planningSession) {
+              throw new Error('Planning does not exist.');
+            }
+            return planningSession;
+          })
+          , catchError( error => throwError(error))
+        )
+        .subscribe((planningSession: PlanningSessionResponse) => {
+          this.router.navigate(['/planning', this.joinForm.get("planningId").value], { queryParams: { userEmail: this.joinForm.get("guestEmail").value } });
+    }, (error) => console.log(error));
   }
 }
-

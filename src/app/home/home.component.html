@@ -7,43 +7,44 @@
 
 <!--home component container-->
 <div class="row">
-
-  <!--login component container-->
-  <div class="col-sm-6 w">
-    <div class="form-login">
-      <span class="group-btn">
-        <label>Name</label>
-        <input type='text' [(ngModel)]='userName' placeholder="Enter a Name" autocomplete="off" class="form-control "
-          required />
-        <br>
-      </span>
-      <span class="group-btn">
-        <label>email</label>
-        <input type='text' [(ngModel)]='email' placeholder="Enter an Email" class="form-control " required />
-      </span>
-      <br>
-    </div>
-  </div>
-
-  <!--game actions component container-->
-  <div class="col-sm-6">
-    <div class="form-login">
-      <h4>Select an Option</h4>
-      <br>
-      <div class="wrapper">
-        <span class="group-btn">
-          <button mat-raised-button [routerLink]="['/planning']" (click)="validateUser()">Start New Planning</button>
-        </span>
-        <br>
-        <br>
-
-        <h4>
-          <span class="label label-default">Join a Planning</span>
-        </h4>
-
-        <a [routerLink]="['/planning', ps.key]" *ngFor="let ps of planningSessionList">{{ps.name}}</a>
-
-      </div>
-    </div>
-  </div>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+          <!-- Joing to an existing Planning -->
+          <div class="gride-container" [formGroup]="joinForm">
+            <h2>Join existing planning</h2>
+            <mat-form-field>
+                <input matInput placeholder="Planning ID" formControlName="planningId" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="joinForm.controls['planningId'].hasError('required')">
+                  Planning ID is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="guestEmail" [errorStateMatcher]="matcher"> 
+                <mat-error *ngIf="joinForm.controls['guestEmail'].hasError('email') && !joinForm.controls['guestEmail'].hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="joinForm.controls['guestEmail'].hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <button mat-raised-button (click)="validatePlanning()" [disabled]="!joinForm.valid">JOIN</button>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <!-- Moderator panel -->
+          <div class="gride-container">
+            <h2>Moderate</h2>
+              <mat-form-field>
+                <input matInput placeholder="Moderator Code">
+              </mat-form-field>
+              <button mat-raised-button [disabled]=true>JOIN as Moderator</button>
+              <br><br>
+              <mat-divider></mat-divider>
+              <mat-form-field>
+                <input matInput placeholder="Email">
+              </mat-form-field>
+              <button mat-raised-button [disabled]=true>Create Planning</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
