@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { PlanningSessionResponse } from '../models/type-definitions';
 import { FirebaseDataAccessService, PLANNING_SESSIONS_REF } from '../services/firebase-data-access.service';
-import { MaterialCommonModule } from '../commons/material.common.module';
 import { throwError } from 'rxjs';
-import { Validators, FormGroup, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map, catchError } from 'rxjs/operators';
+import { MyErrorStateMatcher } from 'app/commons/forms.utils.common';
 
 @Component({
   templateUrl: './home.component.html',
@@ -54,16 +53,7 @@ export class HomeComponent implements OnInit {
           , catchError( error => throwError(error))
         )
         .subscribe((planningSession: PlanningSessionResponse) => {
-          this.router.navigate(['/planning', this.joinForm.get("planningId").value]);
+          this.router.navigate(['/planning', this.joinForm.get("planningId").value], { queryParams: { userEmail: this.joinForm.get("guestEmail").value } });
     }, (error) => console.log(error));
   }
 }
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
-
