@@ -1,0 +1,47 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Active Story Session
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <pre>{{ activeSession | json }}</pre>
+    <pre>{{ activeSession?.story | async | json}}</pre>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Votes
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <pre> {{ votes | json }}</pre>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Participants
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul>
+        <li *ngFor="let p of participants"><pre>{{p | json}}</pre></li>
+      </ul>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Story session list
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul>
+        <li *ngFor="let storySession of storySessionList">
+          <pre>{{ storySession | json}}</pre>
+          <pre>{{ storySession?.story | async | json}}</pre>
+        </li>
+      </ul>
+  </mat-expansion-panel>
+
+
+</mat-accordion>

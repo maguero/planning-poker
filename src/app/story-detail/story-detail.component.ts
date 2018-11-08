@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StoriesSession } from '../models/type-definitions';
+import { StorySession } from '../models/type-definitions';
 
 @Component({
   selector: 'story-detail',

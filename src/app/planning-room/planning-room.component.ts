@@ -1,55 +1,59 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { FirebaseDataAccessService, PLANNING_SESSIONS_REF, STORIES_REF } from '../services/firebase-data-access.service';
-import { Story, StoriesSession, PlanningSessionResponse, STORY_SESSION_STATUS } from '../models/type-definitions';
-
+import { concatMap } from 'rxjs/operators';
+import { Participants, StorySession, Vote } from '../models/type-definitions';
+import { PlanningSessionService } from '../services/planning-session.service';
 
 @Component({
-  // selector: 'planning-room', no longer needed if routing is used. Use selector for nested components
   templateUrl: './planning-room.component.html',
   styleUrls: ['./planning-room.component.css']
 })
 export class PlanningRoomComponent implements OnInit, OnDestroy {
 
-  private planningSessionSubcription$: Subscription;
-  private storiesSubcription$: Subscription;
   public currentPlanningSession: any;
-  // Contiene la lista de stories que corresponden a la planning session con su información completa
-  public storySessionList: StoriesSession[] = [];
+  public storySessionList: StorySession[];
+  public activeSession: any;
+  public votes: Vote[];
+  public participants: Participants[];
+  private subsctiptions$: Subscription[];
+  public activeStorySessionStatus: any;
 
   constructor(
     private route: ActivatedRoute,
-    private dataAccessService: FirebaseDataAccessService) { }
+    private planningSessionService: PlanningSessionService) { }
 
   ngOnInit() {
-    this.planningSessionSubcription$ = this.route.params.subscribe(params => {
+    this.subsctiptions$ = [];
+    // Subscribe , async pipe does not work with derived observables using pipe
 
-      this.planningSessionSubcription$ = this.dataAccessService.getByKey<PlanningSessionResponse>(PLANNING_SESSIONS_REF, params['key'])
-        .valueChanges()
-        .subscribe((planningSession: PlanningSessionResponse) => {
-          this.currentPlanningSession = planningSession;
+    // Subscribe to planning
+    this.subsctiptions$.push(this.route.params
+      .pipe(
+        concatMap(params => this.planningSessionService.getPlanningByKey(params['key']))
+      ).subscribe(planning => this.currentPlanningSession = planning)
+    );
+    // Subscribe to list of story sessions
+    this.subsctiptions$.push(this.planningSessionService.getStorySessions()
+      .subscribe(storySessionList => this.storySessionList = storySessionList));
 
-          // Buscar las stories para completar la información
-          planningSession.storySessions.forEach((storySession) => {
-            this.storiesSubcription$ = this.dataAccessService.getByQuery<Story>(STORIES_REF, 'id', storySession.storyId)
-              .valueChanges()
-              .subscribe((stories: Story[]) => {
-                this.storySessionList.push({
-                  id: storySession.id,
-                  status: storySession.status,
-                  storyPoints: storySession.storyPoints,
-                  story: stories[0] // Suponemos que seria siempre solo un elemento
-                });
-              });
-          });
-        });
-    });
+    // Get active story session
+    this.subsctiptions$.push(this.route.params
+      .pipe(
+        concatMap(params => this.planningSessionService.getActiveStorySession(params['key']))
+      ).subscribe(activeStory => {
+        this.activeSession = activeStory;
+        this.activeStorySessionStatus = this.activeSession.status;
+      }));
+
+    // Subscribe to session votes
+    this.subsctiptions$.push(this.planningSessionService.getStorySessionVotes()
+      .subscribe(votes => this.votes = votes));
+
   }
 
   ngOnDestroy(): void {
-    this.planningSessionSubcription$.unsubscribe();
-    this.storiesSubcription$.unsubscribe();
+    this.subsctiptions$.forEach(s => s.unsubscribe());
   }
 
 }

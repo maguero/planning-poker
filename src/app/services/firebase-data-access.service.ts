@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 export const STORIES_REF = 'stories';
 export const PLANNING_SESSIONS_REF = 'planningSession';
 
+
 @Injectable()
 export class FirebaseDataAccessService {
     constructor(private db: AngularFireDatabase) {
