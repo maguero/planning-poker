@@ -1,33 +1,66 @@
-<status-bar [finalizado]="currentPlanningSession.allVoted" [userEmail]="userEmail"></status-bar>
+<status-bar [finalizado]="currentPlanningSession?.allVoted" [userEmail]="userEmail"></status-bar>
 
-<mat-grid-list cols="3" rowHeight="fit">
+<mat-grid-list cols="3" rowHeight="250px">
+
     <mat-grid-tile colspan="2" rowspan="2">
-        <mat-card>
-            <voted-cards></voted-cards>
+        <mat-card [style.backgroundColor]="'darkseagreen'">
+            <mat-card-header>
+                <mat-card-title>
+                    Votes
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <voted-cards [votes]="votes" [sessionGrommed]="isSessionGrommed"></voted-cards>
+            </mat-card-content>
         </mat-card>
     </mat-grid-tile>
+
     <mat-grid-tile colspan="1" rowspan="2">
         <mat-card>
-            <story-list [stories]='storySessionList'></story-list>
+            <mat-card-header>
+                <mat-card-title>
+                    Current
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <story-detail [details]="activeSession?.story" [storyId]="activeSession.storyId"></story-detail>
+            </mat-card-content>
         </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2">
+
+    <mat-grid-tile colspan="2" rowspan="2">
         <mat-card>
-            <my-cards></my-cards>
+            <mat-card-header>
+                <mat-card-title>
+                    Your cards
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <my-cards></my-cards>
+            </mat-card-content>
         </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="1">
-        <mat-card>
-            <story-detail></story-detail>
+
+    <mat-grid-tile colspan="1" rowspan="2">
+        <mat-card style="overflow-y: scroll">
+            <mat-card-header>
+                <mat-card-title >
+                    <p style="text-align: center">Backlog</p>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <story-list [stories]="storySessionList"></story-list>
+            </mat-card-content>
         </mat-card>
     </mat-grid-tile>
+
 </mat-grid-list>
-<br><br>
-<mat-card>
+
+<!-- <mat-card>
     <mat-card-title>Debug Info</mat-card-title>
     <mat-card-content>
         <debug [participants]="currentPlanningSession.participants" [votes]="votes" [activeSession]="activeSession"
             [storySessionList]="storySessionList">
         </debug>
     </mat-card-content>
-</mat-card>
+</mat-card> -->

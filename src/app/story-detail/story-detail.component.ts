@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StorySession } from '../models/type-definitions';
+import { StorySession, Story } from '../models/type-definitions';
 
 @Component({
   selector: 'story-detail',
@@ -8,7 +8,12 @@ import { StorySession } from '../models/type-definitions';
 })
 export class StoryDetailComponent implements OnInit {
 
+  @Input() details: Story;
+  @Input() storyId: string;
+
   constructor() { }
+
+
 
   ngOnInit() {
   }

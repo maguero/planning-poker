@@ -52,5 +52,6 @@ export enum StorySessionStatus {
 
 export class Vote {
     email: string;
-    votedCard: number
+    votedCard: number;
+    userName: string;
 }

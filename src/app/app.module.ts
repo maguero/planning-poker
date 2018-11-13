@@ -34,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* ====== ANGULAR MATERIAL ====== */
 import { MaterialCommonModule } from './commons/material.common.module';
 import { DebugComponent } from './debug/debug.component';
+import { DynamicCardComponent } from './dynamic-card/dynamic-card.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DebugComponent } from './debug/debug.component';
     HomeComponent,
     VotedCardsComponent,
     StoryDetailComponent,
-    DebugComponent
+    DebugComponent,
+    DynamicCardComponent
   ],
   imports: [
     BrowserModule,
