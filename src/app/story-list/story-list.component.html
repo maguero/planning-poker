@@ -1,10 +1,14 @@
-<div class=story-list-container>
-    <ul>
-        <li *ngFor="let storySession of stories">
-            <h4>{{ storySession.story.title}}</h4>
-            <p>{{ storySession.story.detail}}</p>
-            <div class="pill-label pill-label--grommed" *ngIf="storySession.storyPoints != 0">{{storySession.storyPoints}}</div>
-            <div class="pill-label pill-label--new" *ngIf="storySession.storyPoints == 0">New</div>
-        </li>
-    </ul>
-</div>
+<mat-list>
+    <mat-list-item *ngFor="let storySession of stories">
+        <mat-icon mat-list-icon>assignment</mat-icon>
+        <h4 mat-line>Story #{{storySession?.storyId }} {{(storySession?.story | async)?.title }}</h4>
+        <p mat-line> {{ (storySession?.story | async)?.detail }}</p>
+        
+        <mat-chip-list>
+            <mat-chip *ngIf="storySession?.storyPoints > 0" color="primary" selected>{{ storySession?.storyPoints }}</mat-chip>
+            <mat-chip *ngIf="storySession?.storyPoints == 0" color="accent" selected>{{ storySession?.storyPoints }}</mat-chip>
+        </mat-chip-list>
+
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>

@@ -15,6 +15,7 @@ export class StorySessionResponse {
 export class StorySession {
     id: string;
     storyPoints: number;
+    storyId: string;
     story?: Story;
     status: string;
 }
@@ -52,5 +53,6 @@ export enum StorySessionStatus {
 
 export class Vote {
     email: string;
-    votedCard: number
+    votedCard: number;
+    userName: string;
 }

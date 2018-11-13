@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Vote } from 'app/models/type-definitions'
 
 @Component({
   selector: 'voted-cards',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./voted-cards.component.css']
 })
 export class VotedCardsComponent implements OnInit {
+
+  @Input() votes: Vote[]
+  @Input() sessionGrommed: boolean;
 
   constructor() { }
 

@@ -6,10 +6,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatListModule } from '@angular/material/list';
+import { MatChipsModule } from '@angular/material/chips';
+
+
 
 @NgModule({
     imports: [
@@ -28,7 +33,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
         MatToolbarModule,
         MatIconModule,
         MatMenuModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatBadgeModule,
+        MatListModule,
+        MatChipsModule
     ]
 })
 

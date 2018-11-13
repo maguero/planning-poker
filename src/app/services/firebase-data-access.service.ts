@@ -10,6 +10,7 @@ export const PLANNING_SESSIONS_REF = 'planningSession';
 
 @Injectable()
 export class FirebaseDataAccessService {
+
     constructor(private db: AngularFireDatabase) {
     }
 
@@ -21,19 +22,19 @@ export class FirebaseDataAccessService {
     }
 
     getByKey<T>(dbRef: string, key: string): AngularFireObject<T> {
-        return this.db.object(`${dbRef}/${key}`);
+        return this.db.object<T>(`${dbRef}/${key}`);
     }
 
     addNew<T>(dbRef: string, data: T) {
         this.db.list(dbRef).push(data);
     }
 
-    updateByKey<T>(dbRef: string, key: string, data: any) {
-        this.db.list(dbRef).update(key, data);
+    updateByKey<T>(dbRef: string, key: string, data: any): Promise<void> {
+        return this.db.list(dbRef).update(key, data);
     }
 
     getByQuery<T>(dbRef: string, fieldName: string, fieldValue: any): AngularFireList<T> {
-        return this.db.list(dbRef, ref => ref.orderByChild(fieldName).equalTo(fieldValue))
+        return this.db.list<T>(dbRef, ref => ref.orderByChild(fieldName).equalTo(fieldValue))
     }
 
     removebyKey<T>(dbRef: string, key: string): Promise<void> {

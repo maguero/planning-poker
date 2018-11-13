@@ -1,0 +1,11 @@
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+  <mat-card class="card" [@flipState]="sessionGrommed ? 'hidden' : 'fliped'">
+    <div *ngIf="!sessionGrommed">
+      <img src="assets/images/cards/b-coffee.png" class="voted-cards" />
+    </div>
+    <div *ngIf="sessionGrommed">
+      <img [src]="getCardImagePath()" class="voted-cards" />
+    </div>
+  </mat-card>
+  <p *ngIf="sessionGrommed">{{participantName}}</p>
+</div>

@@ -41,37 +41,40 @@
       "storySessions": [
         {
           "config": {
-            "time": "60",
-            "voted": false
+            "time": "60"
           },
           "id": "44b38665-5517-4523-9adf-7e86f22a4d11",
           "realTime": "60",
           "status": "ACTIVE",
+          "grommed": false,
           "storyId": "1",
           "storyPoints": "5",
           "votes": [
             {
               "email": "juanmanuel.helguero@endava.com",
+              "userName": "Juan",
               "votedCard": "3"
             },
             {
               "email": "matias.aguero@endava.com",
+              "userName": "Matias",
               "votedCard": "5"
             },
             {
               "email": "exequiel.pereyra@endava.com",
+              "userName": "Exe",
               "votedCard": "5"
             }
           ]
         },
         {
           "config": {
-            "time": "120",
-            "voted": false
+            "time": "120"
           },
           "id": "ee60b5c6-933b-4962-92da-778dbcc740b2",
           "realTime": "120",
           "status": "NEW",
+          "grommed": false,
           "storyId": "2",
           "storyPoints": "3",
           "votes": [
