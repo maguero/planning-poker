@@ -1,19 +1,28 @@
 <status-bar [finalizado]="currentPlanningSession.allVoted" [userEmail]="userEmail"></status-bar>
+
 <mat-grid-list cols="3" rowHeight="fit">
     <mat-grid-tile colspan="2" rowspan="2">
-        <voted-cards></voted-cards>
+        <mat-card>
+            <voted-cards></voted-cards>
+        </mat-card>
     </mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="2">
-        <story-list [stories]='storySessionList'></story-list>
+        <mat-card>
+            <story-list [stories]='storySessionList'></story-list>
+        </mat-card>
     </mat-grid-tile>
     <mat-grid-tile colspan="2">
-        <my-cards></my-cards>
+        <mat-card>
+            <my-cards></my-cards>
+        </mat-card>
     </mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1">
-        <story-detail></story-detail>
+        <mat-card>
+            <story-detail></story-detail>
+        </mat-card>
     </mat-grid-tile>
 </mat-grid-list>
-
+<br><br>
 <mat-card>
     <mat-card-title>Debug Info</mat-card-title>
     <mat-card-content>
