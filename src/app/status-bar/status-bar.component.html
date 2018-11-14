@@ -1,4 +1,6 @@
-<div>
-    <span class="badge badge-pill badge-success" *ngIf="!finalizado">In Progress</span>
-    <span class="badge badge-pill badge-secondary" *ngIf="finalizado">Completed</span>
-</div>
+<mat-toolbar class="status-bar mat-body">
+    <span *ngIf="!finalizado">In Progress</span>
+    <span *ngIf="finalizado">Completed</span>
+    <span class="fill-remaining-space"></span>
+    <span>{{userEmail}}</span>
+</mat-toolbar>

@@ -1,0 +1,7 @@
+mat-grid-list {
+    height: calc(100vh - 120px);
+}
+
+mat-grid-tile {
+    background: lightgrey;
+} 

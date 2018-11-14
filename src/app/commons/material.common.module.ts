@@ -6,6 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
     imports: [
@@ -20,7 +24,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
         FormsModule,
         ReactiveFormsModule,
         MatCardModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatMenuModule,
+        MatSidenavModule
     ]
 })
 

@@ -59,6 +59,7 @@ import { DebugComponent } from './debug/debug.component';
         path: 'planning/:key',
         component: PlanningRoomComponent
       },
+      { path: 'debug', component: DebugComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' },
     ]),

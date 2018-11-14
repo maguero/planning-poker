@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'header-page',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  navigateHome(): void {
+    this.router.navigate(
+      ['/home']
+    );
+  }
+
+  navigateDebug(): void {
+    this.router.navigate(
+      ['/debug']
+    );
   }
 
 }

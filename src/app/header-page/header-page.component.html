@@ -1,6 +1,18 @@
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
-    <img src="/assets/images/pp.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    Planning Poker App
-  </a>
-</nav>
+<mat-toolbar color="primary">
+  <mat-card-title>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="navigateHome()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item (click)="navigateDebug()">
+        <mat-icon>code</mat-icon>
+        <span>Debug</span>
+      </button>
+    </mat-menu>
+    <a mat-button routerLink="#">Planning Poker</a>
+  </mat-card-title>
+</mat-toolbar>

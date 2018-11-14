@@ -44,3 +44,7 @@ h4 {
 .gride-container h2 {
   text-align: center;
 }
+
+mat-grid-list {
+  height: calc(100vh - 200px);
+}
