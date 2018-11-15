@@ -6,42 +6,8 @@
     border: 1px solid rgba(86,61,124,.2);
 }
 
-.content{
-    height: 300px;
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
 }
-
-li {
-    list-style: none;
-    border-bottom: 1px solid silver;
-    margin-bottom: 5px;
-}
-
-.pill-label {
-    border-radius: 4px;
-    padding: 3px;
-    color: white;
-    max-width: 100px;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.pill-label--grommed {
-    background-color: tomato;
- 
-}
-.pill-label--new {
-    background-color: teal;
-}
-
-.story-points{
-    margin-bottom: 15px;
-    width: 30px;
-    text-align: center;
-}
-
-.story-list-container{
-    height: 500px;
-    overflow-y: scroll;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

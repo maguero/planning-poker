@@ -7,7 +7,7 @@
 
 <!--home component container-->
 <div class="row">
-  <mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-list cols="2" rowHeight="fit">
     <mat-grid-tile>
       <!-- Joing to an existing Planning -->
       <div class="gride-container" [formGroup]="joinForm">
@@ -27,6 +27,7 @@
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
+        <br><br>
         <button mat-raised-button (click)="validatePlanning()" [disabled]="!joinForm.valid">JOIN</button>
       </div>
     </mat-grid-tile>
@@ -43,6 +44,7 @@
         <mat-form-field>
           <input matInput placeholder="Email">
         </mat-form-field>
+        <br><br>
         <button mat-raised-button [disabled]=true>Create Planning</button>
       </div>
     </mat-grid-tile>

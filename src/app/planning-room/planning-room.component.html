@@ -1,28 +1,28 @@
-<div class="container-fluid" *ngIf="currentPlanningSession">
-    <div class="row area">
-        <div class="col-xs">
-            <!-- {{currentPlanningSession | json}} -->
-            <status-bar [finalizado]="currentPlanningSession.allVoted"></status-bar>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col area">
-            <voted-cards></voted-cards>
-        </div>
-        <div class="col area">
-            <story-detail></story-detail>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col area">
-            <my-cards></my-cards>
-        </div>
-        <div class="col area">
-            <story-list [stories]='storySessionList'></story-list>
-        </div>
-    </div>
-</div>
+<status-bar [finalizado]="currentPlanningSession.allVoted" [userEmail]="userEmail"></status-bar>
 
+<mat-grid-list cols="3" rowHeight="fit">
+    <mat-grid-tile colspan="2" rowspan="2">
+        <mat-card>
+            <voted-cards></voted-cards>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="2">
+        <mat-card>
+            <story-list [stories]='storySessionList'></story-list>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+        <mat-card>
+            <my-cards></my-cards>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+        <mat-card>
+            <story-detail></story-detail>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<br><br>
 <mat-card>
     <mat-card-title>Debug Info</mat-card-title>
     <mat-card-content>

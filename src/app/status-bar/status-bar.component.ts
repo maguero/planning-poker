@@ -10,6 +10,9 @@ export class StatusBarComponent implements OnInit {
   @Input()
   public finalizado: boolean;
 
+  @Input()
+  public userEmail: string;
+
   constructor() { }
 
   ngOnInit() {

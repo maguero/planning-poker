@@ -11,6 +11,7 @@ import { PlanningSessionService } from '../services/planning-session.service';
 })
 export class PlanningRoomComponent implements OnInit, OnDestroy {
 
+  public userEmail: any;
   public currentPlanningSession: any;
   public storySessionList: StorySession[];
   public activeSession: any;
@@ -24,8 +25,14 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
     private planningSessionService: PlanningSessionService) { }
 
   ngOnInit() {
+
     this.subsctiptions$ = [];
     // Subscribe , async pipe does not work with derived observables using pipe
+
+    // Subscribe to the userEmail
+    this.subsctiptions$.push(this.route.queryParams
+      .subscribe(params => this.userEmail = params['userEmail'])
+    );
 
     // Subscribe to planning
     this.subsctiptions$.push(this.route.params
