@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
-import { Participants, StorySession, Vote } from '../models/type-definitions';
+import { StorySession, Vote } from '../models/type-definitions';
 import { PlanningSessionService } from '../services/planning-session.service';
 
 @Component({
@@ -16,18 +16,19 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
   public storySessionList: StorySession[];
   public activeSession: any;
   public votes: Vote[];
-  public participants: Participants[];
+  public isSessionGrommed: boolean;
   private subsctiptions$: Subscription[];
-  public activeStorySessionStatus: any;
+
 
   constructor(
     private route: ActivatedRoute,
     private planningSessionService: PlanningSessionService) { }
 
+
   ngOnInit() {
 
+
     this.subsctiptions$ = [];
-    // Subscribe , async pipe does not work with derived observables using pipe
 
     // Subscribe to the userEmail
     this.subsctiptions$.push(this.route.queryParams
@@ -50,13 +51,18 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
         concatMap(params => this.planningSessionService.getActiveStorySession(params['key']))
       ).subscribe(activeStory => {
         this.activeSession = activeStory;
-        this.activeStorySessionStatus = this.activeSession.status;
+        this.isSessionGrommed = this.activeSession.grommed;
       }));
 
     // Subscribe to session votes
     this.subsctiptions$.push(this.planningSessionService.getStorySessionVotes()
       .subscribe(votes => this.votes = votes));
 
+  }
+
+
+  makeVote(vote: any) {
+    console.log('Vote: ' + vote.userEmail + '  ' + vote.cardNumber);
   }
 
   ngOnDestroy(): void {

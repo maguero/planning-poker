@@ -1,28 +1,12 @@
-<div align="center" class="table-responsive-md">
-  <!-- <caption>Voted Cards</caption> -->
-  <table class="table">
-    <tbody>
-      <!-- determine here number of columns per row -->
-      <!-- then, use nested ngfor directives -->
-      <tr>
-        <td>Exe
-          <br>
-          <img src="assets/images/cards/b-3.png" class="voted-cards"/>
-          <!-- place holder for each username and voted card -->
-        </td>
-        <td>Mati
-          <br>
-          <img src="assets/images/cards/b-3.png" class="voted-cards"/>
-        </td>
-        <td>Valen
-          <br>
-          <img src="assets/images/cards/b-3.png" class="voted-cards"/>
-        </td>
-        <td>Mendo
-          <br>
-          <img src="assets/images/cards/b-5.png" class="voted-cards"/>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+
+<div class="cardContainer">
+  <div *ngFor="let item of votes">
+    <dynamic-card 
+    [participantName]="item.userName" 
+    [votedCard]="item.votedCard" 
+    [sessionGrommed]="sessionGrommed"
+    >
+    </dynamic-card>
+  </div>
 </div>

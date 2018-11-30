@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.userService.anonymousLogin().then((u) => {
-
+      console.log(u);
     });
   }
 

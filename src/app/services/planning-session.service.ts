@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PlanningSessionResponse, Story, StorySession, StorySessionResponse, Vote } from '../models/type-definitions';
 import { FirebaseDataAccessService, PLANNING_SESSIONS_REF, STORIES_REF } from './firebase-data-access.service';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable()
 export class PlanningSessionService {
@@ -12,8 +13,9 @@ export class PlanningSessionService {
     private votes$: Observable<any>;
     private activeSession$: Observable<any>;
 
-    constructor(private dataAccess: FirebaseDataAccessService) {
+    constructor(private dataAccess: FirebaseDataAccessService, private db: AngularFireDatabase) {
     }
+
 
     getPlanningByKey(key: string): Observable<PlanningSessionResponse> {
         this.planning$ = this.dataAccess.getByKey<PlanningSessionResponse>(PLANNING_SESSIONS_REF, key).valueChanges();

@@ -1,4 +1,46 @@
 .cards{
-    width: 10%;
-    height: auto;
+    width: 100px;
+    cursor: pointer;
 }
+
+.cards1{
+    transform: translate(-30px); 
+}
+
+.cards2{
+    transform: translate(-60px); 
+}
+
+.cards3{
+    transform: translate(-90px); 
+}
+.cards5{
+    transform: translate(-110px); 
+}
+
+.cards8{
+    transform: translate(-140px); 
+}
+
+.cards13{
+    transform: translate(-170px); 
+}
+
+.cardsQuestion{
+    transform: translate(-200px); 
+}
+.cardsLast{
+    transform: translate(-230px); 
+}
+
+.cards:hover{
+    width: 110px;
+}
+
+.cardsShadow{
+    -webkit-box-shadow: -7px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -7px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -7px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+

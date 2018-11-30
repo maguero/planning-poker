@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FirebaseDataAccessService, STORIES_REF } from '../services/firebase-data-access.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { StorySession } from '../models/type-definitions';
+import { FirebaseDataAccessService } from '../services/firebase-data-access.service';
 
 @Component({
   selector: 'story-list',
@@ -9,7 +9,7 @@ import { StorySession } from '../models/type-definitions';
 })
 export class StoryListComponent implements OnInit {
 
-  @Input('stories') stories: StorySession[];
+  @Input() stories: StorySession[];
 
   constructor(private dataAccess: FirebaseDataAccessService) {
   }

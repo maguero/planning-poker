@@ -1,4 +1,5 @@
-.voted-cards{
-    width: 60%;
-    height: auto;
+.cardContainer{
+    display: flex; 
+    flex-direction: row;
+    margin: 2%;
 }

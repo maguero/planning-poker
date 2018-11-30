@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,11 +8,17 @@ import { UserService } from '../services/user.service';
 })
 export class MyCardsComponent implements OnInit {
 
-  userName: string;
-  constructor(private _userService: UserService) { }
+  @Input() userEmail: string;
+  @Output() valueChange = new EventEmitter();
+
+  constructor() { }
 
   ngOnInit() {
-    this.userName = this._userService.getUserName()
+
+  }
+
+  vote(cardNumber: number) {
+    this.valueChange.emit({ userEmail: this.userEmail, cardNumber });
   }
 
 }

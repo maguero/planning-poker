@@ -18,7 +18,7 @@
     "@angular/common": "^6.1.9",
     "@angular/compiler": "^6.1.9",
     "@angular/core": "^6.1.9",
-    "@angular/fire": "^5.0.2",
+    "@angular/fire": "^5.1.0",
     "@angular/forms": "^6.1.9",
     "@angular/http": "^6.1.9",
     "@angular/material": "^7.0.1",
