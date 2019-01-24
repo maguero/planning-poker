@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 /* ====== THIRD PARTY MODULES ====== */
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
@@ -35,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialCommonModule } from './commons/material.common.module';
 import { DebugComponent } from './debug/debug.component';
 import { DynamicCardComponent } from './dynamic-card/dynamic-card.component';
+import { RouterCommonModule } from './commons/router.common.module';
 
 @NgModule({
   declarations: [
@@ -55,16 +55,7 @@ import { DynamicCardComponent } from './dynamic-card/dynamic-card.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    RouterModule.forRoot([ // routes from specific to general.. position matters!!!
-      { path: 'home', component: HomeComponent },
-      {
-        path: 'planning/:key',
-        component: PlanningRoomComponent
-      },
-      { path: 'debug', component: DebugComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' },
-    ]),
+    RouterCommonModule,
     BrowserAnimationsModule,
     MaterialCommonModule
   ],
