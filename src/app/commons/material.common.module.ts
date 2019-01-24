@@ -13,7 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -36,7 +36,8 @@ import { MatChipsModule } from '@angular/material/chips';
         MatSidenavModule,
         MatBadgeModule,
         MatListModule,
-        MatChipsModule
+        MatChipsModule,
+        MatProgressSpinnerModule
     ]
 })
 

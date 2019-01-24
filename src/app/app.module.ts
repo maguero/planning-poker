@@ -35,6 +35,7 @@ import { MaterialCommonModule } from './commons/material.common.module';
 import { DebugComponent } from './debug/debug.component';
 import { DynamicCardComponent } from './dynamic-card/dynamic-card.component';
 import { RouterCommonModule } from './commons/router.common.module';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { RouterCommonModule } from './commons/router.common.module';
     VotedCardsComponent,
     StoryDetailComponent,
     DebugComponent,
-    DynamicCardComponent
+    DynamicCardComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
