@@ -70,5 +70,7 @@ export class PlanningSessionService {
         return this.votes$;
     }
 
-
+    updatePlanningByKey(key: string, data: any) {
+        this.dataAccess.updateByKey<PlanningSessionResponse>(PLANNING_SESSIONS_REF, key, data);
+    } 
 }

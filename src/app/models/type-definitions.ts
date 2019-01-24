@@ -1,7 +1,12 @@
 
-export class Participants {
+export class Participant {
     email: string;
-    username: string;
+    username?: string;
+
+    constructor(email: string, username?: string | undefined) {
+        this.email = email;
+        this.username = username == undefined ? '' : username;
+    };
 }
 
 export class StorySessionResponse {
@@ -39,7 +44,7 @@ export class PlanningSessionResponse {
     name: string;
     allVoted?: boolean;
     backlog?: Story[];
-    participants?: Participants[];
+    participants?: Participant[];
     storySessions?: StorySessionResponse[];
 }
 
