@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
-import { StorySession, Vote } from '../models/type-definitions';
+import { StorySession, Vote, PlanningSessionResponse, Participant, StorySessionResponse } from '../models/type-definitions';
 import { PlanningSessionService } from '../services/planning-session.service';
 
 @Component({
@@ -12,13 +12,15 @@ import { PlanningSessionService } from '../services/planning-session.service';
 export class PlanningRoomComponent implements OnInit, OnDestroy {
 
   public userEmail: any;
-  public currentPlanningSession: any;
+  public key: any;
+  public currentPlanningSession: PlanningSessionResponse;
   public storySessionList: StorySession[];
   public activeSession: any;
   public votes: Vote[];
   public isSessionGrommed: boolean;
   private subsctiptions$: Subscription[];
-
+  public participants: Participant[];
+  public filteredParticipantsLength: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,12 +37,18 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
       .subscribe(params => this.userEmail = params['userEmail'])
     );
 
+    // Get key and userEmail
+    this.key = this.route.snapshot.paramMap.get('key');
+
     // Subscribe to planning
-    this.subsctiptions$.push(this.route.params
-      .pipe(
-        concatMap(params => this.planningSessionService.getPlanningByKey(params['key']))
-      ).subscribe(planning => this.currentPlanningSession = planning)
-    );
+    this.subsctiptions$.push(
+      this.planningSessionService.getPlanningByKey(this.key)
+    .subscribe(planning => {
+      this.currentPlanningSession = planning;
+      this.participants = this.currentPlanningSession.participants;
+      this.validateAndPersistIfParticipantNotExists();
+    }));
+
     // Subscribe to list of story sessions
     this.subsctiptions$.push(this.planningSessionService.getStorySessions()
       .subscribe(storySessionList => this.storySessionList = storySessionList));
@@ -48,7 +56,7 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
     // Get active story session
     this.subsctiptions$.push(this.route.params
       .pipe(
-        concatMap(params => this.planningSessionService.getActiveStorySession(params['key']))
+        concatMap(params => this.planningSessionService.getActiveStorySession(this.key))
       ).subscribe(activeStory => {
         this.activeSession = activeStory;
         this.isSessionGrommed = this.activeSession.grommed;
@@ -69,4 +77,17 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
     this.subsctiptions$.forEach(s => s.unsubscribe());
   }
 
+  validateAndPersistIfParticipantNotExists() {
+    this.filteredParticipantsLength = this.participants.filter(participant => participant.email === this.userEmail).length;
+    if (this.filteredParticipantsLength == 0) {
+      this.participants.push(new Participant(this.userEmail));
+      this.currentPlanningSession.participants = this.participants;
+      this.currentPlanningSession.storySessions.map(storySession => {
+        if (!storySession.grommed) {
+          storySession.votes.push(new Vote(this.userEmail));
+          return storySession;
+        }});
+      this.planningSessionService.updatePlanningByKey(this.key, this.currentPlanningSession);
+    }
+  }
 }

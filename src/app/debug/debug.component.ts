@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Participants, StorySession, Vote } from '../models/type-definitions';
+import { Participant, StorySession, Vote } from '../models/type-definitions';
 
 @Component({
   selector: 'debug-info',
@@ -8,7 +8,7 @@ import { Participants, StorySession, Vote } from '../models/type-definitions';
 })
 export class DebugComponent implements OnInit {
 
-  @Input() participants: Participants[];
+  @Input() participants: Participant[];
   @Input() votes: Vote[];
   @Input() activeSession: StorySession;
   @Input() storySessionList: StorySession[];
