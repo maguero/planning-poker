@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+<div class="card-container">
   <mat-card class="card" [@flipState]="sessionGrommed ? 'hidden' : 'fliped'">
     <div *ngIf="!sessionGrommed">
       <img src="assets/images/cards/b-coffee.png" class="voted-cards" />

@@ -1,0 +1,66 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+.teal-theme {
+  $primary: mat-palette($mat-teal);
+  $accent: mat-palette($mat-pink);
+  $theme: mat-light-theme($primary, $accent);
+
+  .background-primary {
+    background-color: map-get($mat-grey, 50) !important;
+  }
+
+  .background-secondary {
+    background-color: map-get($mat-teal, 50) !important;
+  }
+
+  @include angular-material-theme($theme);
+}
+
+.light-blue-theme {
+  $primary: mat-palette($mat-light-blue);
+  $accent: mat-palette($mat-yellow, 400);
+  $theme: mat-light-theme($primary, $accent);
+
+  .background-primary {
+    background-color: map-get($mat-grey, 50) !important;
+  }
+  .background-secondary {
+    background-color: map-get($mat-light-blue, 50) !important;
+  }
+
+  @include angular-material-theme($theme);
+}
+
+.pink-theme {
+  $primary: mat-palette($mat-pink);
+  $accent: mat-palette($mat-blue-grey);
+  $theme: mat-light-theme($primary, $accent);
+
+  .background-primary {
+    background-color: map-get($mat-grey, 50) !important;
+  }
+
+  .background-secondary {
+    background-color: map-get($mat-pink, 50) !important;
+  }
+
+  @include angular-material-theme($theme);
+}
+
+.deep-orange-theme {
+  $primary: mat-palette($mat-deep-orange);
+  $accent: mat-palette($mat-grey);
+  $theme: mat-light-theme($primary, $accent);
+
+  .background-primary {
+    background-color: map-get($mat-grey, 50) !important;
+  }
+
+  .background-secondary {
+    background-color: map-get($mat-deep-orange, 50) !important;
+  }
+
+  @include angular-material-theme($theme);
+}

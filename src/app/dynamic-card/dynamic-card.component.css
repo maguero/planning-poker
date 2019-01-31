@@ -1,14 +1,19 @@
-.voted-cards{
-    width: 100%;
-    background-size: cover;
+.voted-cards {
+  width: 100%;
+  background-size: cover;
 }
 
 .card {
-    max-width: 100px;
-    margin-left: 10px;
-    margin-right: 10px;
-    -webkit-box-shadow: -7px 0px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: -7px 0px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: -7px 0px 5px 0px rgba(0,0,0,0.75);
-    
-  }
+  max-width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
