@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+
+enum Themes {
+  TEAL = 'teal-theme',
+  BLUE = 'light-blue-theme',
+  PINK = 'pink-theme',
+  ORANGE = 'deep-orange-theme'
+}
 
 @Component({
   selector: 'header-page',
@@ -7,22 +14,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./header-page.component.css']
 })
 export class HeaderPageComponent implements OnInit {
+  @Output()
+  selectedTheme: EventEmitter<string> = new EventEmitter();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   navigateHome(): void {
-    this.router.navigate(
-      ['/home']
-    );
+    this.router.navigate(['/home']);
   }
 
   navigateDebug(): void {
-    this.router.navigate(
-      ['/debug']
-    );
+    this.router.navigate(['/debug']);
   }
 
+  changeTheme(theme: string) {
+    this.selectedTheme.emit(Themes[theme]);
+  }
 }

@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  selectedTheme = 'teal-theme';
 
-  constructor() {
+  constructor() {}
+
+  changeTheme(theme: string) {
+    this.selectedTheme = theme;
   }
-
 }

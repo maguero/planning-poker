@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <mat-card-title>
+  <div>
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
@@ -14,5 +14,25 @@
       </button>
     </mat-menu>
     <a mat-button routerLink="#">Planning Poker</a>
-  </mat-card-title>
+  </div>
+
+  <span class="fill-remaining-space"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu2">
+    <mat-icon>palette</mat-icon>
+  </button>
+  <mat-menu #menu2="matMenu">
+    <button mat-menu-item (click)="changeTheme('TEAL')">
+      <span>Teal</span>
+    </button>
+    <button mat-menu-item (click)="changeTheme('BLUE')">
+      <span>Light Blue</span>
+    </button>
+    <button mat-menu-item (click)="changeTheme('PINK')">
+      <span>Pink</span>
+    </button>
+    <button mat-menu-item (click)="changeTheme('ORANGE')">
+      <span>Orange</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>

@@ -1,8 +1,12 @@
-mat-grid-list { 
-    height: calc(100vh - 120px);
+mat-grid-list {
+  height: calc(100vh - 120px);
 }
 
 mat-card {
-    width: calc(95%);
-    height: calc(85%);
+  width: calc(95%);
+  height: calc(85%);
+}
+
+.backlog-card {
+  overflow-y: scroll;
 }

@@ -1,59 +1,66 @@
 <status-bar [activeSession]="activeSession" [sessionGrommed]="isSessionGrommed"></status-bar>
+  [finalizado]="currentPlanningSession?.allVoted"
+  [userEmail]="userEmail"
+></status-bar>
 
 <mat-grid-list cols="3" rowHeight="250px">
+  <mat-grid-tile colspan="2" rowspan="2">
+    <mat-card class=" background-primary">
+      <mat-card-header>
+        <mat-card-title>
+          <h1 class="mat-display-1">Active Votes</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <voted-cards
+          [votes]="votes"
+          [sessionGrommed]="isSessionGrommed"
+        ></voted-cards>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
 
-    <mat-grid-tile colspan="2" rowspan="2">
-        <mat-card [style.backgroundColor]="'darkseagreen'">
-            <mat-card-header>
-                <mat-card-title>
-                    <h1 class="mat-display-1">Active Votes</h1>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <voted-cards [votes]="votes" [sessionGrommed]="isSessionGrommed"></voted-cards>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="2">
+    <mat-card class=" background-primary">
+      <mat-card-header>
+        <mat-card-title>
+          <h1 class="mat-display-1">Active Story</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <story-detail [activeSession]="activeSession"></story-detail>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
 
-    <mat-grid-tile colspan="1" rowspan="2">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h1 class="mat-display-1">Active Story</h1>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <story-detail [activeSession]="activeSession"></story-detail>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="2">
+    <mat-card class=" background-primary">
+      <mat-card-header>
+        <mat-card-title>
+          <h1 class="mat-display-1">Your Cards</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <my-cards
+          (valueChange)="makeVote($event)"
+          [userEmail]="userEmail"
+        ></my-cards>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
 
-    <mat-grid-tile colspan="2" rowspan="2">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h1 class="mat-display-1">Your Cards</h1>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <my-cards (valueChange)='makeVote($event)' [userEmail]="userEmail"></my-cards>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="2">
-        <mat-card style="overflow-y: scroll">
-            <mat-card-header>
-                <mat-card-title>
-                    <h1 class="mat-display-1">Backlog</h1>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <story-list [stories]="storySessionList"></story-list>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-
+  <mat-grid-tile colspan="1" rowspan="2">
+    <mat-card class="backlog-card background-primary">
+      <mat-card-header>
+        <mat-card-title>
+          <h1 class="mat-display-1">Backlog</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <story-list [stories]="storySessionList"></story-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
 </mat-grid-list>
 <!-- <mat-card>
     <mat-card-title>Debug Info</mat-card-title>

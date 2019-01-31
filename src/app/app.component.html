@@ -1,8 +1,8 @@
+<div [class]="selectedTheme">
 <!--Header page component-->
-<header-page></header-page>
+<header-page (selectedTheme)='changeTheme($event)'></header-page>
 
 <!--Router component -->
 <router-outlet></router-outlet>
 
-
-
+</div>
