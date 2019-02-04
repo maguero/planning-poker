@@ -1,8 +1,6 @@
 <mat-toolbar class="status-bar mat-body">
-    <mat-chip-list>
-        <mat-chip *ngIf="!finalizado" color="primary" selected>In Progress</mat-chip>
-        <mat-chip *ngIf="finalizado" color="warn"  selected>Completed</mat-chip>
-    </mat-chip-list>
+    <span>Story #{{ activeSession?.storyId }} - {{ (activeSession?.story | async)?.title }}</span>
     <span class="fill-remaining-space"></span>
-    <span>{{userEmail}}</span>
+    <span *ngIf="sessionGrommed">Completed</span>
+    <span *ngIf="!sessionGrommed">{{ activeSession?.realTime }}</span>
 </mat-toolbar>
