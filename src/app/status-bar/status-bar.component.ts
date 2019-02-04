@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { StorySession } from 'app/models/type-definitions';
 
 @Component({
   selector: 'status-bar',
@@ -7,11 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StatusBarComponent implements OnInit {
 
-  @Input()
-  public finalizado: boolean;
-
-  @Input()
-  public userEmail: string;
+  @Input() activeSession: StorySession;
+  @Input() sessionGrommed: boolean;
 
   constructor() { }
 

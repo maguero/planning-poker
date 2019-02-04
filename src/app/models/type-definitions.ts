@@ -1,4 +1,5 @@
 import { MatListIconCssMatStyler } from "@angular/material";
+import { Time } from "@angular/common";
 
 export class Participant {
     email: string;
@@ -25,6 +26,7 @@ export class StorySession {
     storyId: string;
     story?: Story;
     status: string;
+    realTime?: Time;
 }
 
 export class Story {
