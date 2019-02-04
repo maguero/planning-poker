@@ -80,14 +80,17 @@
           "votes": [
             {
               "email": "juanmanuel.helguero@endava.com",
+              "userName": "Juan",
               "votedCard": "3"
             },
             {
               "email": "matias.aguero@endava.com",
+              "userName": "Matias",
               "votedCard": "5"
             },
             {
               "email": "exequiel.pereyra@endava.com",
+              "userName": "Exe",
               "votedCard": "5"
             }
           ]

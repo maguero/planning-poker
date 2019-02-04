@@ -30,7 +30,11 @@ export class HomeComponent implements OnInit {
       'guestEmail': new FormControl('', [
         Validators.required,
         Validators.email,
-      ])
+      ]),
+      'shortName': new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
     });
     this.matcher = new MyErrorStateMatcher();
   }
@@ -56,7 +60,10 @@ export class HomeComponent implements OnInit {
       .subscribe((planningSession: PlanningSessionResponse) => {
         this.router.navigate(
           ['/planning', this.joinForm.get('planningId').value],
-          { queryParams: { userEmail: this.joinForm.get('guestEmail').value } }
+          { queryParams: {
+            userEmail: this.joinForm.get('guestEmail').value,
+            shortName: this.joinForm.get('shortName').value
+          }}
         );
       }, (error) => console.log(error));
   }
