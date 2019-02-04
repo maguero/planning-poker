@@ -27,6 +27,15 @@
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Short Name" formControlName="shortName" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="joinForm.controls['shortName'].hasError('minlength') && !joinForm.controls['shortName'].hasError('required')">
+            Short Name must be at least 3 characters long
+          </mat-error>
+          <mat-error *ngIf="joinForm.controls['shortName'].hasError('required')">
+            Short Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
         <br><br>
         <button mat-raised-button (click)="validatePlanning()" [disabled]="!joinForm.valid">JOIN</button>
       </div>

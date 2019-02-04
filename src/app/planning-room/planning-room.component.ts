@@ -12,6 +12,7 @@ import { PlanningSessionService } from '../services/planning-session.service';
 export class PlanningRoomComponent implements OnInit, OnDestroy {
 
   public userEmail: any;
+  public shortName: any;
   public key: any;
   public currentPlanningSession: PlanningSessionResponse;
   public storySessionList: StorySession[];
@@ -34,7 +35,10 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
 
     // Subscribe to the userEmail
     this.subsctiptions$.push(this.route.queryParams
-      .subscribe(params => this.userEmail = params['userEmail'])
+      .subscribe(params => {
+        this.userEmail = params['userEmail'];
+        this.shortName = params['shortName']
+      })
     );
 
     // Get key and userEmail
@@ -83,10 +87,10 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
       this.participants.push(new Participant(this.userEmail));
       this.currentPlanningSession.participants = this.participants;
       this.currentPlanningSession.storySessions.map(storySession => {
-        if (!storySession.grommed) {
-          storySession.votes.push(new Vote(this.userEmail));
-          return storySession;
-        }});
+      if (!storySession.grommed) {
+        storySession.votes.push(new Vote(this.userEmail, this.shortName));
+        return storySession;
+      }});
       this.planningSessionService.updatePlanningByKey(this.key, this.currentPlanningSession);
     }
   }
