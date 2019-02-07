@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 enum Themes {
   TEAL = 'teal-theme',
@@ -14,12 +14,29 @@ enum Themes {
   styleUrls: ['./header-page.component.css']
 })
 export class HeaderPageComponent implements OnInit {
+
+  @Input() 
+  selectedTheme: string;
   @Output()
-  selectedTheme: EventEmitter<string> = new EventEmitter();
+  selectedThemeChange: EventEmitter<string> = new EventEmitter();
+  
+  private readonly logoImagesPath: string = "assets/images/logo/";
+  private readonly logoImagesSuffix: string =  "-logo.png";
+  public selectedThemeLogoPath: string;
+  public userEmail: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
+  
+  ngOnInit() {
 
-  ngOnInit() {}
+    // Subscribe to the userEmail
+    this.route.queryParams
+      .subscribe(params => {
+        this.userEmail = params['userEmail'];
+      });
+
+    this.changeLogo(this.selectedTheme);
+  }
 
   navigateHome(): void {
     this.router.navigate(['/home']);
@@ -30,6 +47,12 @@ export class HeaderPageComponent implements OnInit {
   }
 
   changeTheme(theme: string) {
-    this.selectedTheme.emit(Themes[theme]);
+    this.selectedTheme = Themes[theme];
+    this.changeLogo(this.selectedTheme);
+    this.selectedThemeChange.emit(this.selectedTheme);
+  }
+
+  changeLogo(logoName: String){
+    this.selectedThemeLogoPath = this.logoImagesPath + logoName + this.logoImagesSuffix;
   }
 }

@@ -33,7 +33,7 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
 
     this.subsctiptions$ = [];
 
-    // Subscribe to the userEmail
+    // Subscribe to the userEmail and Name
     this.subsctiptions$.push(this.route.queryParams
       .subscribe(params => {
         this.userEmail = params['userEmail'];
@@ -41,7 +41,7 @@ export class PlanningRoomComponent implements OnInit, OnDestroy {
       })
     );
 
-    // Get key and userEmail
+    // Get key
     this.key = this.route.snapshot.paramMap.get('key');
 
     // Subscribe to planning
