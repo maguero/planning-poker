@@ -1,7 +1,7 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="background-header">
   <div>
     <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>more_vert</mat-icon>
+      <mat-icon color="primary">more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="navigateHome()">
@@ -13,13 +13,14 @@
         <span>Debug</span>
       </button>
     </mat-menu>
-    <a mat-button routerLink="#">Planning Poker</a>
+    <a mat-button routerLink="#">
+      <img [src]="selectedThemeLogoPath" class="logo">
+    </a>
   </div>
-
   <span class="fill-remaining-space"></span>
-
+  <span *ngIf="userEmail" class="user-email">{{ userEmail }}</span>
   <button mat-icon-button [matMenuTriggerFor]="menu2">
-    <mat-icon>palette</mat-icon>
+    <mat-icon color="primary">palette</mat-icon>
   </button>
   <mat-menu #menu2="matMenu">
     <button mat-menu-item (click)="changeTheme('TEAL')">
