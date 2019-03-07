@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="cardWrapper">
   <mat-card class="card" [@flipState]="sessionGrommed ? 'hidden' : 'fliped'">
     <div *ngIf="!sessionGrommed">
       <img src="assets/images/cards/b-coffee.png" class="voted-cards" />
@@ -7,5 +7,5 @@
       <img [src]="getCardImagePath()" class="voted-cards" />
     </div>
   </mat-card>
-  <p *ngIf="sessionGrommed">{{participantName}}</p>
+  <p>{{participantName}}</p>
 </div>
